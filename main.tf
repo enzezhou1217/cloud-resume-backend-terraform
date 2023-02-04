@@ -262,8 +262,8 @@ resource "aws_route53_record" "ipv4" {
   type    = "A"
 
   alias {
-    name                   = aws_cloudfront_distribution.s3_distribution
-    zone_id                = aws_cloudfront_distribution.s3_distribution
+    name                   = aws_cloudfront_distribution.s3_distribution.dns_name
+    zone_id                = aws_cloudfront_distribution.s3_distribution.zone_id
     evaluate_target_health = true
   }
 }
@@ -275,6 +275,7 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
   name         = "cloud-resume-dynamodb-table"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "DomainName"
+  range_key    = "Visitors"
 
   attribute {
     name = "DomainName"
