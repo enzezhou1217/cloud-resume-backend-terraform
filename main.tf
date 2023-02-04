@@ -296,7 +296,9 @@ resource "aws_dynamodb_table_item" "cloud-resume" {
 {
   "DomainName": {"S": "enzezhou"},
   "ID": {"S" : "id001"},
-  "Visitors": {"S": "0"}
 }
 ITEM
 }
+
+
+//  "Visitors": {"S": "0"}
