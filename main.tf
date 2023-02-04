@@ -281,10 +281,6 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
     type = "S"
   }
 
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = false
-  }
 }
 resource "aws_dynamodb_table_item" "cloud-resume" {
   table_name = "cloud-resume-dynamodb-table"
@@ -292,8 +288,8 @@ resource "aws_dynamodb_table_item" "cloud-resume" {
 
   item = <<ITEM
 {
-  'DomainName': {'S': 'enzezhou'},
-  'Visitors': {'N': '0'}
+  "DomainName": {"S": "enzezhou"},
+  "Visitors": {"N": "0"}
 
 }
 ITEM
