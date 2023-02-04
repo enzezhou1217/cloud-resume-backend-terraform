@@ -13,14 +13,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-cloud {
-    organization = "enzezhou1217"
-
-    workspaces {
-      name = "gh-actions-cloud-resume"
-    }
-  }
-}
 
 
 //*******************************************************************************
