@@ -7,7 +7,7 @@ terraform {
   }
 
   cloud {
-    organization = "enzezhou1217"
+    organization = "enzezhou117"
 
     workspaces {
       name = "gh-actions-cloud-resume"
