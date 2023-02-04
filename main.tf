@@ -282,13 +282,13 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
   }
 
 }
-resource "aws_dynamodb_table_item" "cloud-resume" {
-  table_name = aws_dynamodb_table.cloud-resume-dynamodb-table.name
-  hash_key   = aws_dynamodb_table.cloud-resume-dynamodb-table.hash_key
-
-  item = <<ITEM
-{
-  "DomainName": {"S": "my-resume"}
-}
-ITEM
-}
+//resource "aws_dynamodb_table_item" "cloud-resume" {
+//  table_name = aws_dynamodb_table.cloud-resume-dynamodb-table.name
+//  hash_key   = aws_dynamodb_table.cloud-resume-dynamodb-table.hash_key
+//
+//  item = <<ITEM
+//{
+//  "DomainName": {"S": "my-resume"}
+//}
+//ITEM
+//}
