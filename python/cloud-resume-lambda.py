@@ -10,7 +10,8 @@ def lambda_handler(event, context):
         Key = {
             'DomainName': {
                 'S': 'enzezhou'
-            }
+            },
+            'ID': {'S': 'id001'}
         }
     )
     #extract likes and do the incremntation
@@ -21,9 +22,8 @@ def lambda_handler(event, context):
     update = client.update_item(
         TableName='cloud-resume-dynamodb-table',
         Key = {
-                'DomainName': {
-                    'S': 'enzezhou'
-                }
+            'DomainName': {'S': 'enzezhou'},
+            'ID': {'S': 'id001'}
         },
         UpdateExpression='SET Visitors = :count',
         ExpressionAttributeValues={

@@ -275,9 +275,14 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
   name         = "cloud-resume-dynamodb-table"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "DomainName"
+  range_key    = "ID"
 
   attribute {
     name = "DomainName"
+    type = "S"
+  }
+  attribute {
+    name = "ID"
     type = "S"
   }
 
@@ -285,12 +290,13 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
 resource "aws_dynamodb_table_item" "cloud-resume" {
   table_name = "cloud-resume-dynamodb-table"
   hash_key   = "DomainName"
+  range_key    = "ID"
 
   item = <<ITEM
 {
   "DomainName": {"S": "enzezhou"},
+  "ID": {"S" : "id001"}
   "Visitors": {"N": "0"}
-
 }
 ITEM
 }
