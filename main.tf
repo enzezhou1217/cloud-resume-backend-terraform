@@ -80,7 +80,7 @@ resource "aws_apigatewayv2_integration" "lambda-api-integration" {
   integration_type = "AWS_PROXY"
 
   connection_type           = "INTERNET"
-  content_handling_strategy = "CONVERT_TO_TEXT"
+  #content_handling_strategy = "CONVERT_TO_TEXT"
   description               = "lambda-api-integration"
   integration_method        = "POST"
   integration_uri           = aws_lambda_function.cloud-resume-lambda.invoke_arn
@@ -275,16 +275,10 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
   name         = "cloud-resume-dynamodb-table"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "DomainName"
-  range_key    = "Visitors"
 
   attribute {
     name = "DomainName"
     type = "S"
-  }
-
-  attribute {
-    name = "Visitors"
-    type = "N"
   }
 
   ttl {
