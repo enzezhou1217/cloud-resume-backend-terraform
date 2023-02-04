@@ -6,30 +6,30 @@ client = boto3.client('dynamodb')
 def lambda_handler(event, context):
     # read the item
     data = client.get_item(
-        TableName='tableForResumeSite',
+        TableName='cloud-resume-dynamodb-table',
         Key = {
-            'SiteLink': {
+            'DomainName': {
                 'S': 'enzezhou.com'
             }
         },
         ExpressionAttributeNames={
-                '#name': 'Likes'
+                '#name': 'Visitors'
         },
         ProjectionExpression= '#name'
     )
     #extract likes and do the incremntation
-    count = data.get('Item').get('Likes').get('N')
+    count = data.get('Item').get('Visitors').get('N')
     count = int(count)+1
     
     #update likes
     update = client.update_item(
-        TableName='tableForResumeSite',
+        TableName='cloud-resume-dynamodb-table',
         Key = {
-                'SiteLink': {
+                'DomainName': {
                     'S': 'enzezhou.com'
                 }
         },
-        UpdateExpression='SET Likes = :count',
+        UpdateExpression='SET Visitors = :count',
         ExpressionAttributeValues={
             ':count': {'N':str(count)}
         }
@@ -41,7 +41,7 @@ def lambda_handler(event, context):
       'body': str(count),
       'headers': {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://enzezhou.com'
+        'Access-Control-Allow-Origin': 'enzezhou.com'
       },
     }
     return response;
