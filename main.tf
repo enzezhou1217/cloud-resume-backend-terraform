@@ -280,12 +280,7 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
     name = "DomainName"
     type = "S"
   }
-  
 
-  //ttl {
-  //  attribute_name = "TimeToExist"
-  //  enabled        = false
-  //}
 }
 resource "aws_dynamodb_table_item" "cloud-resume" {
   table_name = aws_dynamodb_table.cloud-resume-dynamodb-table.name
@@ -294,7 +289,6 @@ resource "aws_dynamodb_table_item" "cloud-resume" {
   item = <<ITEM
 {
   "DomainName": {"S": "my-resume"},
-  //"Visitors": {"N": "0"}
 }
 ITEM
 }
