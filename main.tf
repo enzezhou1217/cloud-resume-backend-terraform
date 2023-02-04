@@ -132,9 +132,6 @@ resource "aws_acm_certificate_validation" "cert" {
 //CloudFront & S3 & Route53 Records
 resource "aws_s3_bucket" "mybucket" {
   bucket = "cloud-resume-bucket-enzezhou"
-  versioning_configuration {
-    status = "Disabled"
-  }
   # Add specefic S3 policy in the s3-policy.json on the same directory
   #policy = file("s3-policy.json")
 }
