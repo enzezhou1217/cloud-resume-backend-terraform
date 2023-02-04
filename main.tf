@@ -295,7 +295,7 @@ resource "aws_dynamodb_table_item" "cloud-resume" {
   item = <<ITEM
 {
   "DomainName": {"S": "enzezhou"},
-  "ID": {"S" : "id001"}
+  "ID": {"S" : "id001"},
   "Visitors": {"N": "0"}
 }
 ITEM
