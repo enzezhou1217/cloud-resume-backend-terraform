@@ -6,6 +6,14 @@ terraform {
     }
   }
 
+  cloud {
+    organization = "enzezhou1217"
+
+    workspaces {
+      name = "gh-actions-cloud-resume"
+    }
+  }
+
   required_version = ">= 1.2.0"
 }
 
