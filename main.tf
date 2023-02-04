@@ -130,7 +130,7 @@ resource "aws_acm_certificate_validation" "cert" {
 
 //*******************************************************************************
 //CloudFront & S3 & Route53 Records
-resource "aws_s3_bucket_versioning" "mybucket" {
+resource "aws_s3_bucket" "mybucket" {
   bucket = "cloud-resume-bucket-enzezhou"
   versioning_configuration {
     status = "Disabled"
@@ -139,7 +139,7 @@ resource "aws_s3_bucket_versioning" "mybucket" {
   #policy = file("s3-policy.json")
 }
 resource "aws_s3_bucket_website_configuration" "mysite" {
-  bucket = aws_s3_bucket_versioning.mybucket.bucket
+  bucket = aws_s3_bucket.mybucket.bucket
 
   index_document {
     suffix = "index.html"
@@ -159,7 +159,7 @@ resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket_versioning.mybucket
+    domain_name = aws_s3_bucket.mybucket.bucket_domain_name
     origin_id   = local.s3_origin_id
 
     s3_origin_config {
