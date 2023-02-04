@@ -287,12 +287,12 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
   }
 }
 resource "aws_dynamodb_table_item" "cloud-resume" {
-  table_name = aws_dynamodb_table.cloud-resume-dynamodb-table.name
-  hash_key   = aws_dynamodb_table.cloud-resume-dynamodb-table.hash_key
+  table_name = "cloud-resume-dynamodb-table"
+  hash_key   = "DomainName"
 
   item = <<ITEM
 {
-  "DomainName": {"S": "enzezhou.com"},
+  "DomainName": {"S": "enzezhou"},
   "Visitors": {"N": "0"}
 }
 ITEM

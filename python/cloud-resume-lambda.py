@@ -9,7 +9,7 @@ def lambda_handler(event, context):
         TableName='cloud-resume-dynamodb-table',
         Key = {
             'DomainName': {
-                'S': 'enzezhou.com'
+                'S': 'enzezhou'
             }
         },
         ExpressionAttributeNames={
@@ -26,7 +26,7 @@ def lambda_handler(event, context):
         TableName='cloud-resume-dynamodb-table',
         Key = {
                 'DomainName': {
-                    'S': 'enzezhou.com'
+                    'S': 'enzezhou'
                 }
         },
         UpdateExpression='SET Visitors = :count',
