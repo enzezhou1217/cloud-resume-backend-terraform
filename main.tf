@@ -280,11 +280,12 @@ resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
     name = "DomainName"
     type = "S"
   }
+  
 
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = false
-  }
+  //ttl {
+  //  attribute_name = "TimeToExist"
+  //  enabled        = false
+  //}
 }
 resource "aws_dynamodb_table_item" "cloud-resume" {
   table_name = aws_dynamodb_table.cloud-resume-dynamodb-table.name
