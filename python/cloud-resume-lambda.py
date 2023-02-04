@@ -11,11 +11,7 @@ def lambda_handler(event, context):
             'DomainName': {
                 'S': 'enzezhou'
             }
-        },
-        ExpressionAttributeNames={
-                '#name': 'Visitors'
-        },
-        ProjectionExpression= '#name'
+        }
     )
     #extract likes and do the incremntation
     count = data.get('Item').get('Visitors').get('N')
