@@ -270,7 +270,7 @@ resource "aws_route53_record" "ipv4" {
 
 //*******************************************************************************
 //DynamoDB
-#dynamodb table and the item initialization
+#dynamodb table and item initialization
 resource "aws_dynamodb_table" "cloud-resume-dynamodb-table" {
   name         = "cloud-resume-dynamodb-table"
   billing_mode = "PAY_PER_REQUEST"
@@ -296,9 +296,7 @@ resource "aws_dynamodb_table_item" "cloud-resume" {
 {
   "DomainName": {"S": "enzezhou"},
   "ID": {"S" : "id001"},
+  "Visitors": {"N" : "0"},
 }
 ITEM
 }
-
-
-//  "Visitors": {"S": "0"}
